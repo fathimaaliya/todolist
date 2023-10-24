@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %}{% block content %}
+<h1 style="text-align: center; padding-top: 20px; font-size: 50px; color: #66545e; font-family: Comic Sans MS, Comic Sans, cursive;">Your Tasks</h1>
+<form action="{{ url_for('views.add') }}" method="post" style="padding-top: 20px;">
+    <input type="text" name="todo" >
+    <button type="submit" style="background-color: #66545e; font-family: Comic Sans MS, Comic Sans, cursive; color: white;">Add Task</button>
+  </form>
+
+
+<ul style="padding-top: 10px;">
+    {% for todo in todos %}
+    <li style="margin: 20px 20px; "> 
+        <input type="checkbox" name="done" {% if todo['done'] %} checked {%endif%} disabled onchange="this.form.submit()">
+        <span {%if todo['done'] %} style="text-decoration: line-through" {%endif%}>{{ todo['task'] }}</span>
+        <a class=" mini ui yellow button "  href="{{ url_for('views.check', home=loop.index0) }}" style="background-color: #a39193; font-family: Comic Sans MS, Comic Sans, cursive ;">Check</a>
+        <a class="mini ui olive button" href="{{ url_for('views.edit', home=loop.index0) }}" style="background-color: #eea990; font-family: Comic Sans MS, Comic Sans, cursive;">Edit</a>
+        <a class="mini ui red button" href="{{ url_for('views.delete', home=loop.index0) }}" style="background-color: #aa6f73; font-family: Comic Sans MS, Comic Sans, cursive;">Delete</a>
+
+    </li>
+    {% endfor %}
+</ul>
+  
+{% endblock %}

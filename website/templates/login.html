@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %}{% block content %}
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="  mt-3 text-center" style="color: #66545e; font-family: Comic Sans MS, Comic Sans, cursive; font-size: 50px; padding-top: 20px;"> Welcome Back!!!</h1>
+      </div>
+      <div class="col-md-4  mx-auto col-10 col-md-8 col-lg-4 mt-5 ">
+        <div class="card" style="background-color: wheat;">
+          <div class="card-body">
+            <form class="form" method="post">
+              <label style="color: #66545e; font-family: Comic Sans MS, Comic Sans, cursive ;">Email</label><br>
+              <input type="email" class="form-control" name="email"><br>
+              <label style="color: #66545e; font-family: Comic Sans MS, Comic Sans, cursive;">Password</label><br>
+              <input type="password" class="form-control" name="password"><br><br>
+              <input type="submit" class="btn  btn-block btn-lg" value="Login" style="background-color: rgb(247, 151, 117) ; font-family: Comic Sans MS, Comic Sans, cursive; color: white;"><br>
+              </form>
+            <p style="color: #66545e; font-family: Comic Sans MS, Comic Sans, cursive;">Not A Member? <a href=http://127.0.0.1:5000/sign-up style="color: #dc3545;">Create Account</a></p>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
